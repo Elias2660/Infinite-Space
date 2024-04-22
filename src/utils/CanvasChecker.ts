@@ -23,7 +23,7 @@ export interface CanvasState {
 const getInitialCanvasState = (): CanvasState => {
   return {
     shouldRender: true,
-    pixelRatio: window.devicePixelRatio || 1,
+    pixelRatio: typeof window !== "undefined" ? window.devicePixelRatio : 1,
     container: {
       width: 0,
       height: 0,
@@ -65,7 +65,7 @@ export default class CanvasStore {
     return canvasData;
   }
 
-  static initialize(width: number, height: number, window:Window) {
+  static initialize(width: number, height: number, window: Window) {
     const containerWidth = width;
     const containerHeight = height;
     canvasData = getInitialCanvasState();
@@ -148,11 +148,11 @@ export default class CanvasStore {
     );
     const newZ = oldZ + deltaAmount;
     this.shouldRender = true;
-      this.data.camera = {
-        x: newX,
-        y: newY,
-        z: newZ,
-      };
+    this.data.camera = {
+      x: newX,
+      y: newY,
+      z: newZ,
+    };
   }
 
   // pointer position from top left of the screen
