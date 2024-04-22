@@ -5,7 +5,6 @@ import useSize from "@react-hook/size";
 import useRenderLoop from "@/utils/FrameRenderer";
 import TextBlock from "@/components/TextBlock"
 import InfiniteCanvas from "./InfiniteCanvas";
-import { RECT_H, RECT_W } from "@/utils/Constants";
 
 function wheelListener(e: WheelEvent) {
   const friction = 1;
@@ -33,13 +32,12 @@ export default function CanvasRoot() {
   const [elements, setElements] = useState<elementProps[]>([]);
   const canvas = useRef<HTMLDivElement>(null);
   const [width, height] = useSize(canvas);
+  const screen = CanvasChecker.screen;
 
   function handleClick(event: React.MouseEvent<HTMLDivElement>) {
-    console.log("hit");
-    console.log(elements);
     const elementVal = {
-      "top": event.nativeEvent.offsetX,
-      "left": event.nativeEvent.offsetY,
+      "left": event.nativeEvent.clientX + screen.x,
+      "top": event.nativeEvent.clientY + screen.y,
     }
     setElements([...elements, elementVal]);
   }
@@ -60,9 +58,9 @@ export default function CanvasRoot() {
         onPointerMove={pointerListener}
         onClick={handleClick}
       >
-        <InfiniteCanvas frame={frame} />
+        {/* <InfiniteCanvas frame={frame} /> */}
         {elements?.map((element: elementProps, key) => (
-          <TextBlock frame={frame} key={key} text="asfgjavanjk" color="#FF0000" width={width} height={height} top={element.left} left={element.top} />
+          <TextBlock frame={frame} key={key} text="asfgjavanjk" color="#FF0000" width={width} height={height} top={element.top} left={element.left} />
         ))}
       </div>
     </div>
