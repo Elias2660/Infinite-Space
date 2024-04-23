@@ -1,9 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    assetPrefix: "/Infinite-Space",
-    publicRuntimeConfig: {
-      basePath: "/Infinite-Space",
-    },
-};
+    assetPrefix: process.env.NODE_ENV === 'production' ? '/Infinite-Space/' : "",
+  };
+  
 
 export default nextConfig;
