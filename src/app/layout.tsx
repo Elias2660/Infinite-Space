@@ -9,9 +9,9 @@ export const metadata: Metadata = {
   title: "Infinite Scroll Test",
   description: "Check out project on github!",
   icons: {
-    icon:  process.env.NODE_ENV === 'production' ? '/Infinite-Space' : "" + "/images/icons/favicon.ico",
-    shortcut: process.env.NODE_ENV === 'production' ? '/Infinite-Space' : "" +  "/images/icons/favicon-32x32.png",
-    apple: process.env.NODE_ENV === 'production' ? '/Infinite-Space' : "" + "/images/icons/apple-touch-icon.png",
+    icon: "/images/icons/favicon.ico",
+    shortcut:"/images/icons/favicon-32x32.png",
+    apple: "/images/icons/apple-touch-icon.png",
   }
 };
 
