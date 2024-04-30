@@ -13,7 +13,7 @@
   "dependencies": {
     "@react-hook/size": "^2.1.2",
     "eslint": "^8.57.0",
-    "next": "^14.3.0-canary.23",
+    "next": "^14.3.0-canary.32",
     "react": "^18",
     "react-dom": "^18"
   },
