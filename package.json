@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@react-hook/size": "^2.1.2",
-    "eslint": "^8.57.0",
+    "eslint": "^9.10.0",
     "next": "^14.3.0-canary.37",
     "react": "^18",
     "react-dom": "^18"
